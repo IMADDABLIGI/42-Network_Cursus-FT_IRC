@@ -382,7 +382,17 @@ void Server::parse(int fd, std::string line){
 		case 7:
 			this->mode(fd, iss);
 			break;
+		case 8:
+			this->bot(fd, line);
+			break;
 		default:
 			throw "invalid command\n";
 	}
+}
+
+void Server::bot(int fd, std::string line)
+{
+	std::map<int, Client>::iterator it;
+	it = this->list.find(fd);
+	this->sendMessage(fd, "this is a test: " + line + "\n");
 }
