@@ -6,14 +6,14 @@
 #    By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 18:11:19 by idabligi          #+#    #+#              #
-#    Updated: 2023/10/26 18:14:54 by idabligi         ###   ########.fr        #
+#    Updated: 2023/10/27 10:45:43 by idabligi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ircserv
 
 CC = c++
-FLAGS = -std=c++98 # -Wall -Wextra -Werror 
+FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 HEADERS = Channel.hpp Client.hpp Server.hpp
 

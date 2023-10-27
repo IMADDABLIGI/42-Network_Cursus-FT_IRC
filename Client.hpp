@@ -21,7 +21,7 @@ class Client {
 		int _sockfd;
 		struct pollfd fd;
 		//
-		struct sockaddr_in _addr;
+		// struct sockaddr_in _addr;
 		std::string _username;
 		std::string _nickname;
 		bool _authenticate;
