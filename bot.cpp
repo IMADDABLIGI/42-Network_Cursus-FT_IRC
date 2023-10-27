@@ -18,7 +18,6 @@ int main() {
     const std::string server = "localhost";
     const int port = 8080;
     const std::string nickname = "SYKONO";
-    const std::string user = "IMAD";
     const std::string channel = "#Gaming";
 
     // Create socket
@@ -61,6 +60,6 @@ int main() {
         std::string message(buffer);
         std::cout << message;
     }
-    close(socket_desc);
+    close (socket_desc);
     return 0;
 }

@@ -348,7 +348,7 @@ void Server::parse(int fd, std::string line){
 
 	std::string str;
 	std::stringstream iss(line);
-	std::string cmd[10] = {"NICK", "USER", "JOIN", "PRIVMSG", "KICK", "INVITE", "TOPIC", "MODE"};
+	std::string cmd[10] = {"NICK", "USER", "JOIN", "PRIVMSG", "KICK", "INVITE", "TOPIC", "MODE", "BOT"};
 	iss >> str;
 	int index = -1;
     for (int i = 0; i < 10; ++i) {
