@@ -10,6 +10,7 @@ const int BUFFER_SIZE = 4096;
 void send_message(int socket, const std::string& message) {
     std::string formatted_message = message + "\n";
     send(socket, formatted_message.c_str(), formatted_message.length(), 0);
+    usleep(100);
 }
 
 int main() {
@@ -43,10 +44,9 @@ int main() {
 
     // Send user and nickname information
     send_message(socket_desc, "PASS hello");
-    // usleep(100);
     send_message(socket_desc, "NICK " + nickname);
     send_message(socket_desc, "USER " + nickname + " 0 * :" + nickname);
-    
+
     // Join the channel
     send_message(socket_desc, "JOIN " + channel);
 
