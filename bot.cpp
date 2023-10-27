@@ -4,6 +4,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include "Server.hpp"
 
 const int BUFFER_SIZE = 4096;
 
@@ -13,53 +14,57 @@ void send_message(int socket, const std::string& message) {
     usleep(100);
 }
 
-int main() {
+void Server::exec_bot(int fd) {
     // Configuration
-    const std::string server = "localhost";
-    const int port = 8080;
-    const std::string nickname = "SYKONO";
-    const std::string channel = "#Gaming";
-
-    // Create socket
-    int socket_desc = socket(AF_INET, SOCK_STREAM, 0);
-    if (socket_desc == -1) {
-        std::cout << "Failed to create socket." << std::endl;
-        return 1;
-    }
-
-    // Connect to the server
-    sockaddr_in server_addr; 
-    if (inet_pton(AF_INET, "127.0.0.1", &(server_addr.sin_addr)) <= 0)
+    int pid = fork();
+    if (pid == -1)
+        throw "Failed to create child process";
+    else if (!pid)
     {
-        std::cout << "Invalid address/Address not supported" << std::endl;
-        return 1;
-    }
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(port);
-    if (connect(socket_desc, (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0) {
-        std::cout << "Failed to connect to the server." << std::endl;
-        return 1;
-    }
+        const std::string server = "localhost";
+        const int port = 8080;
+        const std::string nickname = "SYKONO";
+        const std::string channel = "#Gaming";
 
-    // Send user and nickname information
-    send_message(socket_desc, "PASS hello");
-    send_message(socket_desc, "NICK " + nickname);
-    send_message(socket_desc, "USER " + nickname + " 0 * :" + nickname);
+        // Create socket
+        int socket_desc = socket(AF_INET, SOCK_STREAM, 0);
+        if (socket_desc == -1)
+            throw "Failed to create socket.";
 
-    // Join the channel
-    send_message(socket_desc, "JOIN " + channel);
+        // Connect to the server
+        sockaddr_in server_addr; 
+        if (inet_pton(AF_INET, "127.0.0.1", &(server_addr.sin_addr)) <= 0)
+        throw "Invalid address/Address not supported";
+        
+        server_addr.sin_family = AF_INET;
+        server_addr.sin_port = htons(port);
+        if (connect(socket_desc, (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0) 
+            throw "Failed to connect to the server.";
+        
+        std::cout << fd << std::endl;
+        std::cout << socket_desc << std::endl;
 
-    // Main loop
-    char buffer[BUFFER_SIZE];
-    while (true) {
-        memset(buffer, 0, sizeof(buffer));
-        if (recv(socket_desc, buffer, sizeof(buffer), 0) <= 0) {
-            std::cout << "Connection closed by the server." << std::endl;
-            break;
+        // Send user and nickname information
+        send_message(socket_desc, "PASS hello");
+        send_message(socket_desc, "NICK " + nickname);
+        send_message(socket_desc, "USER " + nickname + " 0 * :" + nickname);
+
+        // Join the channel
+        send_message(socket_desc, "JOIN " + channel);
+
+        // Main loop
+        char buffer[BUFFER_SIZE];
+        while (true) {
+            memset(buffer, 0, sizeof(buffer));
+            if (recv(socket_desc, buffer, sizeof(buffer), 0) <= 0) {
+                throw "Connection closed by the server.";
+                break;
+            }
+            std::string message(buffer);
+            std::cout << message;
         }
-        std::string message(buffer);
-        std::cout << message;
+        close (socket_desc);
     }
-    close (socket_desc);
-    return 0;
+    else
+        waitpid(pid, NULL, 0);
 }

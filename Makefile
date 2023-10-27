@@ -6,7 +6,7 @@
 #    By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 18:11:19 by idabligi          #+#    #+#              #
-#    Updated: 2023/10/27 10:45:43 by idabligi         ###   ########.fr        #
+#    Updated: 2023/10/27 17:07:27 by idabligi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 HEADERS = Channel.hpp Client.hpp Server.hpp
 
-FL = main Channel Client Parser Server\
+FL = main Channel Client Parser Server bot\
 
 FO = $(FL:=.o)
 
