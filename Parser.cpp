@@ -341,7 +341,6 @@ void Server::mode(int fd, std::stringstream& iss){
 				throw "no such mode\n";
 		}
 	}
-	
 }
 
 void Server::parse(int fd, std::string line){
