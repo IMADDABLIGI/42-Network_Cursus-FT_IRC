@@ -6,10 +6,9 @@ std::vector<std::string> nameSplit(std::string name){
 	std::string tmp;
 	std::stringstream ss(name);
 	while (getline(ss, tmp, ',')){
-		names.push_back(tmp);
+		names.push_back(toLower(tmp));
 	}
-	for(size_t i = 0; i < names.size(); i++)
-		std::cout << names[i] << std::endl;
+
 	return names;
 }
 
@@ -29,10 +28,9 @@ void Server::privateMsg(int fd, std::stringstream& iss){
 		this->sendMessage(fd, ":" + this->list[fd].getNick() + "461 PRIVMSG :Not enough parameters\r\n");
 		return ;
 	}
-	if (msg[0] == ':')
-		msg = msg.substr(2);
-	else
-		msg = msg.substr(1);
+	msg = msg.substr(1);
+	if (msg[0] != ':')
+		msg = ":" + msg;
 	std::vector<std::string> names = nameSplit(name);
 	for(size_t i=0; i<names.size(); i++){
 		name = names[i];
@@ -59,11 +57,8 @@ void Server::privateMsg(int fd, std::stringstream& iss){
 				this->sendMessage(fd, ":" + this->list[fd].getNick() + " 400 PRIVMSG :Cannot send to yourself\r\n");
 				return ;
 			}
-			// this->sendMessage(tmp_fd, ":" + this->list[fd].getNick() + "!" + this->list[fd].getUser() + "@" + _hostname +  " PRIVMSG " + this->list[tmp_fd].getNick() + " :" + msg + "\r\n");
 			std::string mssg = ":" + this->list[fd].getNick() + " PRIVMSG " + name + " "  + msg + "\r\n";
-			std::cout << mssg;
 			this->sendMessage(tmp_fd, mssg);
-			// std::cout << ":" + this->list[fd].getNick() + " PRIVMSG " + this->list[tmp_fd].getNick() + " :"  + msg + "\n";
 		}
 	}
 

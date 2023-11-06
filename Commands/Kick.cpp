@@ -7,11 +7,16 @@ void Server::kick(int fd, std::stringstream& iss){
 	iss >> channel;
 	iss >> name;
 	
-
-	if (channel.empty() || name.empty())
-		throw  "Error :Invalid parameteres\r\n";
-	if (channel[0] != '#')
-		throw "Error :invalid channel name\r\n";
+	channel = toLower(channel);
+	name = toLower(name);
+	if (channel.empty() || name.empty()){
+		this->sendMessage(fd, "Error :invalid parameters\r\n");
+		return ;
+	}
+	if (channel[0] != '#'){
+		this->sendMessage(fd, "Error :invalid channel name\r\n");
+		return ;
+	}
 	if (this->_channels.find(channel) == this->_channels.end()){
 		this->sendMessage(fd, "403 " + this->list[fd].getNick() + " " + channel + " :No such channel\r\n");
 		return ;
@@ -45,5 +50,5 @@ void Server::kick(int fd, std::stringstream& iss){
 
 	this->_channels[channel].sendMessage(":" + this->list[fd].getNick() + " KICK " + channel + " " + this->list[tmp_fd].getNick() + " :" + "Kicked by " + this->list[fd].getNick() + "\r\n", -1);
 	this->_channels[channel].kickOperator(tmp_fd);
-	this->_channels[channel].kickClient(this->list.find(tmp_fd)->second.getNick());
+	this->_channels[channel].kickClient(name);
 }
