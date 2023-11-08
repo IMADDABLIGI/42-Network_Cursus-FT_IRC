@@ -1,4 +1,8 @@
 # FT_IRC
+
+<p align="center">  <img src="Assets/IrcExample.png" width="55%"> </p>
+
+# Definition
 IRC (Internet Relay Chat) is a protocol for real-time text messaging between internet-connected computers created in 1988. It is mainly used for group discussion in chat rooms called “channels” although it supports private messages between two users, data transfer, and various server-side and client-side commands. As of April 2011, the top 100 IRC networks served over 500,000 users at a time on hundreds of thousands of channels.
 
 # Summary
