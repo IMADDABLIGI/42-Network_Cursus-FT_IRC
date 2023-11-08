@@ -5,7 +5,7 @@ IRC (Internet Relay Chat) is a protocol for real-time text messaging between int
 This project is about creating your own IRC server. We will use an actual IRC client to connect to our server and test it. Internet is ruled by solid standards protocols that allow connected computers to interact with each other.
 
 # Subject Requirements
-- Youmust be able to authenticate and to register, i.e to define a nickname, a username.
+- You must be able to authenticate and to register, i.e to define a nickname, a username.
 - You should be able to join a channel, send or receive private messages.
 - Every message sent by a client in a channel must be received by all of the clients who have joined this channel.
 
@@ -44,3 +44,6 @@ This project is about creating your own IRC server. We will use an actual IRC cl
 - `freeaddrinfo`, `bind`, `connect`, `listen`, `accept`, `htons`,
 - `htonl`, `ntohs`, `ntohl`, `inet_addr`, `inet_ntoa`, `send`,
 - `recv`, `signal`, `sigaction`, `lseek`, `fstat`, `fcntl`, `poll(or equivalent)`
+
+# Ressources
+. Modern IRC Client Protocol : https://modern.ircdocs.horse/
