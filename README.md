@@ -21,7 +21,7 @@ This project is about creating your own IRC server. We will use an actual IRC cl
 - Communication between client and server has to be done via TCP/IP (v4 or v6).
 - You must handle ctrl+D to send the command in several parts, ctrl+C for leaks.
 
-#Commands
+# Commands
 | Command | Description |
 | :-----------: | :----------- |
 | Pass | The `PASS` command is used to set a ‘connection password’. If set, the password must be set before any attempt to register the connection is made. |
@@ -36,3 +36,11 @@ This project is about creating your own IRC server. We will use an actual IRC cl
 | Ping | The `PING` command is sent by either clients or servers to check the other side of the connection is still connected and/or to check for connection latency, at the application layer. |
 | Part | The `PART` command removes the client from the given channel(s). |
 | Quit | The `QUIT` command is used to terminate a client’s connection to the server.
+
+# Available Functions
+- Everything in C++ 98.
+- `socket`, `close`, `setsockopt`, `getsockname`,
+- `getprotobyname`, `gethostbyname`, `getaddrinfo`,
+- `freeaddrinfo`, `bind`, `connect`, `listen`, `accept`, `htons`,
+- `htonl`, `ntohs`, `ntohl`, `inet_addr`, `inet_ntoa`, `send`,
+- `recv`, `signal`, `sigaction`, `lseek`, `fstat`, `fcntl`, `poll(or equivalent)`
