@@ -3,7 +3,8 @@
 <p align="center">  <img src="Assets/IrcExample.png" </p>
 
 # Definition
-IRC (Internet Relay Chat) is a protocol for real-time text messaging between internet-connected computers created in 1988. It is mainly used for group discussion in chat rooms called “channels” although it supports private messages between two users, data transfer, and various server-side and client-side commands. As of April 2011, the top 100 IRC networks served over 500,000 users at a time on hundreds of thousands of channels.
+Internet Relay Chat or IRC is a text-based communication protocol on the Internet, It offers real-time messaging that can be either public or private. Users can exchange direct messages and join group channels.
+IRC clients connect to IRC servers in order to join channels. IRC servers are connected together to form a network.
 
 # Summary
 This project is about creating your own IRC server. You will use an actual IRC client to connect to your server and test it. Internet is ruled by solid standards protocols that allow connected computers to interact with each other.
