@@ -32,7 +32,7 @@ This project is about creating your own IRC server. We will use an actual IRC cl
 | Topic | The `TOPIC` command is used to change or view the topic of the given channel. |
 | Invite | The `INVITE` command is used to invite a user to a channel. |
 | Kick | The `KICK` command can be used to request the forced removal of a user from a channel. |
-| Mode | The `MODE` command is used to set or remove options (or modes) from a given target. Our user modes : i, o. Our channels modes: b,k,m,o,p,s,t,v |
+| Mode | The `MODE` command is used to set or remove options (or modes) from a given target.  User modes : i, o. Channels modes: l,k,t |
 | Ping | The `PING` command is sent by either clients or servers to check the other side of the connection is still connected and/or to check for connection latency, at the application layer. |
 | Part | The `PART` command removes the client from the given channel(s). |
-| Quit | The `QUIT` command is used to terminate a client’s connection to the server. The server acknowledges this by replying with an `ERROR` message and closing the connection to the client. |
+| Quit | The `QUIT` command is used to terminate a client’s connection to the server.
