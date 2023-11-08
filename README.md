@@ -46,4 +46,6 @@ This project is about creating your own IRC server. We will use an actual IRC cl
 - `recv`, `signal`, `sigaction`, `lseek`, `fstat`, `fcntl`, `poll(or equivalent)`
 
 # Ressources
+* Internet Relay Chat : http://chi.cs.uchicago.edu/chirc/index.html | https://www.rfc-editor.org/rfc/rfc1459.html
 * Modern IRC Client Protocol : https://modern.ircdocs.horse/
+* Command Reference : https://dd.ircdocs.horse/refs/commands/
