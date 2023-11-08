@@ -6,7 +6,7 @@
 IRC (Internet Relay Chat) is a protocol for real-time text messaging between internet-connected computers created in 1988. It is mainly used for group discussion in chat rooms called “channels” although it supports private messages between two users, data transfer, and various server-side and client-side commands. As of April 2011, the top 100 IRC networks served over 500,000 users at a time on hundreds of thousands of channels.
 
 # Summary
-This project is about creating your own IRC server. We will use an actual IRC client to connect to our server and test it. Internet is ruled by solid standards protocols that allow connected computers to interact with each other.
+This project is about creating your own IRC server. You will use an actual IRC client to connect to your server and test it. Internet is ruled by solid standards protocols that allow connected computers to interact with each other.
 
 # Subject Requirements
 - You must be able to authenticate and to register, i.e to define a nickname, a username.
@@ -37,7 +37,7 @@ This project is about creating your own IRC server. We will use an actual IRC cl
 | Invite | The `INVITE` command is used to invite a user to a channel. |
 | Kick | The `KICK` command can be used to request the forced removal of a user from a channel. |
 | Mode | The `MODE` command is used to set or remove options (or modes) from a given target.  User modes : i, o. Channels modes: l,k,t |
-| BOT | The `BOT` command with argument `DATA` will display the present time,  with the argument `HELP` will display a manual of all the commands|
+| BOT | The `BOT` command can be used with argument `DATA` to display the present time, and with the argument `HELP` to display a manual of all the commands |
 | Ping | The `PING` command is sent by either clients or servers to check the other side of the connection is still connected and/or to check for connection latency, at the application layer. |
 | Part | The `PART` command removes the client from the given channel(s). |
 | Quit | The `QUIT` command is used to terminate a client’s connection to the server.
