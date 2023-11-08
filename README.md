@@ -46,4 +46,4 @@ This project is about creating your own IRC server. We will use an actual IRC cl
 - `recv`, `signal`, `sigaction`, `lseek`, `fstat`, `fcntl`, `poll(or equivalent)`
 
 # Ressources
-. Modern IRC Client Protocol : https://modern.ircdocs.horse/
+* Modern IRC Client Protocol : https://modern.ircdocs.horse/
