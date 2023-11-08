@@ -19,3 +19,20 @@ This project is about creating your own IRC server. We will use an actual IRC cl
 - Only 1 poll() (or equivalent) can be used for handling all these operations (read, write, but also listen, and so forth).
 - Several IRC clients exist. You have to choose one of them as a reference. Your reference client will be used during the evaluation process.
 - Communication between client and server has to be done via TCP/IP (v4 or v6).
+- You must handle ctrl+D to send the command in several parts, ctrl+C for leaks.
+
+#Commands
+| Command | Description |
+| :-----------: | :----------- |
+| Pass | The `PASS` command is used to set a ‘connection password’. If set, the password must be set before any attempt to register the connection is made. |
+| Nick | The `NICK` command is used to give the client a nickname or change the previous one. |
+| User | The `USER` command is used at the beginning of a connection to specify the username and realname of a new user. |
+| Privmsg | The `PRIVMSG` command is used to send private messages between users, as well as to send messages to channels. |
+| Join | The `JOIN` command indicates that the client wants to join the given channel(s), each channel using the given key for it. |
+| Topic | The `TOPIC` command is used to change or view the topic of the given channel. |
+| Invite | The `INVITE` command is used to invite a user to a channel. |
+| Kick | The `KICK` command can be used to request the forced removal of a user from a channel. |
+| Mode | The `MODE` command is used to set or remove options (or modes) from a given target. Our user modes : i, o. Our channels modes: b,k,m,o,p,s,t,v |
+| Ping | The `PING` command is sent by either clients or servers to check the other side of the connection is still connected and/or to check for connection latency, at the application layer. |
+| Part | The `PART` command removes the client from the given channel(s). |
+| Quit | The `QUIT` command is used to terminate a client’s connection to the server. The server acknowledges this by replying with an `ERROR` message and closing the connection to the client. |
