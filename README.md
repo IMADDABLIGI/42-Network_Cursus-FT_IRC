@@ -11,7 +11,7 @@ This project is about creating your own IRC server. We will use an actual IRC cl
 
 # Rules
 - Code the IRC server in C++98.
-- Your executable will be run as follows: ./ircserv <port> <password>
+- Your executable will be run as follows: `./ircserv <port> <password>`
   - port : The port number on which your IRC server will be listening to for incoming IRC connections.
   - password: The connection password. It will be needed by any IRC client that tries to connect to your server.
 - The server must be capable of handling multiple clients at the same time and never hang.
