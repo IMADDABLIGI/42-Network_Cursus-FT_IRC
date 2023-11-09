@@ -53,5 +53,6 @@ This project is about creating your own IRC server. You will use an actual IRC c
 
 # Ressources
 * Internet Relay Chat : http://chi.cs.uchicago.edu/chirc/index.html | https://www.rfc-editor.org/rfc/rfc1459.html
+* Network Programming : https://beej.us/guide/bgnet/html/
 * Modern IRC Client Protocol : https://modern.ircdocs.horse/
 * Command Reference : https://dd.ircdocs.horse/refs/commands/
